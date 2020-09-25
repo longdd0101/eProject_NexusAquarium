@@ -13,22 +13,89 @@
       crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="./style.css/main.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <style>
+      .height-300 {
+        min-height: 300px;
+      }
+      .height-100 {
+        min-height: 100px;
+      }
+      .width-100 {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
     <!-- HEADER ============================================================ -->
     <div id="header" class="bg-primary">
       <div class="container">
-        <div class="row">
+        <div class="row height-100 align-items-center">
           <div class="col">
             <a href="./index.html">
-              <img src="./images/logo.png" alt="logo" />
+              <img class="" src="./images/logo.png" alt="logo" />
             </a>
           </div>
-          <div class="col"></div>
+          <div class="col">
+            <!-- ============ -->
+            <div class="row justify-content-end">
+              <nav class="navbar navbar-expand-md navbar-light">
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarTogglerDemo01"
+                  aria-controls="navbarTogglerDemo01"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                      <a class="nav-link" href="./index.html">Home </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="navbarDropdownMenuLink"
+                        role="button"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Animals
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Sharks</a>
+                        <a class="dropdown-item" href="#">Dolphins</a>
+                        <a class="dropdown-item" href="#">Jellies</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Event</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <!-- END HEADER ============================================================ -->
+    <div id="testJS" class="container bg-light height-300">
+      <table id="content" class="table table-bordered">
+        <tbody></tbody>
+      </table>
+    </div>
+    <!--  ============================================================ -->
     <a href="./animals/sharks.html">Sharks</a>
     <div class="container">
       <div class="row">
@@ -38,25 +105,18 @@
             <h3 class="post__header">Limia Fish – Habitat, Care, Feeding, Tank Size, Breeding</h3>
             <img class="post__thumbnail" src="./images/posts/limia-fish.jpg" alt="limia-fish" />
             <article class="post__discription text-justify">
-              Have you been looking for an unusual yet attractive fish to keep in your tank? Then
-              Limia fish may be a perfect choice. Limia belongs to a genus of livebearing fishes
-              under the Poeciliidae family, which includes other creatures like swordtails, mollies,
-              guppies, and platys. There are about 21 documented…
+              Have you been looking for an unusual yet attractive fish to keep in your tank? Then Limia fish may be a perfect choice. Limia belongs to
+              a genus of livebearing fishes under the Poeciliidae family, which includes other creatures like swordtails, mollies, guppies, and
+              platys. There are about 21 documented…
             </article>
             <hr />
           </div>
           <div class="post">
             <h3 class="post__header">10 Loach Species for Your Aquarium</h3>
-            <img
-              class="post__thumbnail"
-              src="./images/posts/aquarium-loach-species.jpg"
-              alt="aquarium-loach-species"
-            />
+            <img class="post__thumbnail" src="./images/posts/aquarium-loach-species.jpg" alt="aquarium-loach-species" />
             <article class="post__discription text-justify">
-              Getting a pet is no easy decision. You should take into account its feeds, have
-              someone to take care of it when you are not around and invest in a few things
-              essential for its survival. Even so, you can be assured of companionship with the
-              right pet, boosted mental…
+              Getting a pet is no easy decision. You should take into account its feeds, have someone to take care of it when you are not around and
+              invest in a few things essential for its survival. Even so, you can be assured of companionship with the right pet, boosted mental…
             </article>
             <hr />
           </div>
@@ -67,9 +127,8 @@
             <h4>About AquariumNexus</h4>
             <img class="" src="./images/fabian.jpg" alt="fabian" />
             <p class="text-justify">
-              Fish keeping and aquariums has been my hobby for almost 20 years. In fact, it’s more
-              than a hobby, because I’ve spent countless hours doing research on different fish
-              species.
+              Fish keeping and aquariums has been my hobby for almost 20 years. In fact, it’s more than a hobby, because I’ve spent countless hours
+              doing research on different fish species.
             </p>
           </div>
         </div>
@@ -93,5 +152,6 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>
