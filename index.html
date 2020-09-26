@@ -14,17 +14,6 @@
     />
 
     <link rel="stylesheet" href="./css/main.css" />
-    <style>
-      .height-300 {
-        min-height: 300px;
-      }
-      .height-100 {
-        min-height: 100px;
-      }
-      .width-100 {
-        width: 100%;
-      }
-    </style>
   </head>
   <body>
     <!-- HEADER ============================================================ -->
@@ -51,7 +40,7 @@
                 >
                   <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="collapse navbar-collapse navbar-text" id="navbarTogglerDemo01">
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                       <a class="nav-link" href="./index.html">Home </a>
@@ -70,13 +59,13 @@
                         Animals
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Sharks</a>
-                        <a class="dropdown-item" href="#">Dolphins</a>
-                        <a class="dropdown-item" href="#">Jellies</a>
+                        <a class="dropdown-item" href="./animals_sharks.html">Sharks</a>
+                        <a class="dropdown-item" href="./animals_dolphins.html">Dolphins</a>
+                        <a class="dropdown-item" href="./animals_jellies.html">Jellies</a>
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="#">Event</a>
+                      <a class="nav-link" href="./events.html">Events</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="./contact.html">Contact</a>
@@ -90,14 +79,10 @@
       </div>
     </div>
     <!-- END HEADER ============================================================ -->
-    <div id="testJS" class="container bg-light height-300">
-      <table id="content" class="table table-bordered">
-        <tbody></tbody>
-      </table>
-    </div>
+
     <!--  ============================================================ -->
-    <a href="./animals/sharks.html">Sharks</a>
-    <div class="container">
+
+    <div id="content-wrapper" class="container">
       <div class="row">
         <!-- MAIN CONTENT ================================================== -->
         <div class="main-content col-12 col-md-8">
@@ -134,8 +119,9 @@
         </div>
       </div>
     </div>
+    <!-- FOOTER ============================================================ -->
     <div id="footer" class="bg-dark text-white text-center">© 2020 AquariumNexus.vn</div>
-    <!-- Optional JavaScript -->
+    <!-- Optional JavaScript ============================================================ -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -153,5 +139,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/main.js"></script>
+    <!-- ======================================================== -->
   </body>
 </html>

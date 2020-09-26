@@ -12,7 +12,7 @@ function xuLyKetQuaLayDuoc() {
     var animals = JSON.parse(xhr.responseText);
     // console.log(animals);
     for (let animal of animals.sharks) {
-      content.innerHTML += `<tr><td>${animal.no}</td><td>${animal.name}</td><td>${animal.size}</td><td>${animal.range}</td></tr>`;
+      content.innerHTML += `<tr><td>${animal.no}</td><td>${animal.name}</td><td>${animal.size}</td><td><img class="img-fluid" src="./images/${animal.imgURL}" alt="" /></td></tr>`;
     }
   }
 }
