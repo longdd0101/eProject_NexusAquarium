@@ -107,7 +107,7 @@ if (event_Object.note3) {
 }
 eventDOM.innerHTML += `
     <div class="text-center mb-5">
-        <button type="button" class="btn btn-primary">Buy Tickets</button>
+        <button type="button" class="btn btn-primary">Booking online!</button>
     </div>
 `;
 
