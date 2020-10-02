@@ -1,25 +1,22 @@
-import { dataJSONURL } from "./variables.js";
-import { fn_getDataJSON, fn_URLSearchParams } from "./app.js";
+import { dataJSONURL, nameDataBookingToLocalStorage } from "./variables.js";
+import {
+  fn_getDataJSON,
+  fn_URLSearchParams,
+  fn_getObjectFromDataJSON,
+  fn_setObjectToArrayLocalStorage,
+  fn_getArrayLocalStorage,
+  fn_removeObjectIDInArrayLocalStorage,
+} from "./app.js";
 
 var detailType = fn_URLSearchParams("detailType");
+var detailID = fn_URLSearchParams("detailID");
 // console.log(detailType);
-var eventID = fn_URLSearchParams("eventID");
-// console.log(eventID);
-const dataJSON_Object = fn_getDataJSON(dataJSONURL);
-// console.log(dataJSON_Object);
-const dataJSON_Array = dataJSON_Object[detailType];
-// console.log(dataJSON_Array);
-var event_Object;
-for (let _Object of dataJSON_Array) {
-  if (_Object.eventID === eventID) {
-    event_Object = _Object;
-  }
-}
+// console.log(detailID);
+const event_Object = fn_getObjectFromDataJSON(detailType, detailID);
 // console.log(event_Object);
-// =======================================================================
 const eventDOM = document.querySelector("#eventDOM");
 
-// add HTML
+// Add HTML DOM =======================================================================
 eventDOM.innerHTML = `
     <h3 class="text-center" data-name="name">${event_Object.name}</h3>
     <div class="discription border mb-5">
@@ -106,9 +103,92 @@ if (event_Object.note3) {
     `;
 }
 eventDOM.innerHTML += `
-    <div class="text-center mb-5">
-        <button type="button" class="btn btn-primary">Booking online!</button>
+    <div class="text-center ">
+        <button id="bookingButton" type="button" class="btn btn-primary">Booking online!</button>
     </div>
 `;
 
-console.log(eventDOM);
+// BOOKING =====================================================================================================================
+const bookingButton = document.querySelector("#bookingButton");
+const bookingSection = document.querySelector("#bookingSection");
+const bookingTable = document.querySelector("#bookingTable tbody");
+
+bookingButton.addEventListener("click", fn_bookingButton);
+bookingTable.addEventListener("click", fn_deleteRow);
+fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+
+function fn_bookingButton() {
+  fn_setObjectToArrayLocalStorage(event_Object, nameDataBookingToLocalStorage);
+  fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+}
+function fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage) {
+  const arrayDataBooking = fn_getArrayLocalStorage(nameDataBookingToLocalStorage);
+  //Delete row old
+  while (bookingTable.hasChildNodes()) {
+    bookingTable.removeChild(bookingTable.firstChild);
+  }
+  for (const _object of arrayDataBooking) {
+    fn_addTrTagBooking(_object, bookingTable);
+  }
+}
+
+// Function Add a Tag <tr> to <tbody> ===================================================================
+function fn_addTrTagBooking(_Object, _DOM) {
+  // Create HTML Element: tr
+  const trTag = document.createElement("tr");
+
+  // Add class to <tr> Tag
+  trTag.setAttribute("detailID", _Object.id);
+
+  // add HTML
+  trTag.innerHTML = `  
+      <td class="ticket_thumbnail">
+        <img src="./images/${_Object.imgURL_main1}" alt="" class="img-fluid" data-name="imgURL_main1"/>
+          <span data-name="name">${_Object.name}</span>
+        </td>
+      <td>
+        <input
+          type="number"
+          name="ticket_adult_quantity"
+          min="0"
+          value="${_Object.ticket_adult_quantity}"
+          class="ticket_quantity"
+          data-name="ticket_adult_quantity"
+          onchange="fn_changeQuantity(this)"
+        />
+      </td>
+      <td class="ticket_adult_price" data-name="ticket_adult_price">${_Object.ticket_adult_price}$</td>
+      <td class="ticket_summary">${_Object.ticket_summary}$</td>
+      <td><button class="bookingRemove" >Remove</button></td>        
+    `;
+  // add to tbody
+  _DOM.appendChild(trTag);
+}
+// Function delete row -  a Tag <tr> of <tbody> ===================================================================
+function fn_deleteRow(event) {
+  if (event.target.classList.contains("bookingRemove")) {
+    // Get ID
+    const _DOM = event.target.parentElement.parentElement;
+    // console.log(_DOM);
+    const detailID = _DOM.getAttribute("detailID");
+
+    // remove in localstorage
+    fn_removeObjectIDInArrayLocalStorage(detailID, nameDataBookingToLocalStorage);
+
+    // re create <tr>
+    fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+  }
+}
+// Function change quantity  ===================================================================
+function fn_changeQuantity(_thisInput) {
+  // Get ID
+  const _DOM = _thisInput.target.parentElement.parentElement;
+  // console.log(_DOM);
+  const detailID = _DOM.getAttribute("detailID");
+
+  // remove in localstorage
+  // fn_removeObjectIDInArrayLocalStorage(detailID, nameDataBookingToLocalStorage);
+
+  // re create <tr>
+  // fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+}

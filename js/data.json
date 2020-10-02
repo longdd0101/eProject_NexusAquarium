@@ -73,7 +73,7 @@
     ],
     "dolphins": [
         {
-            "no": "1",
+            "id": "1",
             "name": "Pacific white-sided dolphin",
             "imgURL": "dolphin_img_pacific white sided.webp",
             "description": "These dolphins keep close company. White-sided dolphins swim in herds of thousands, although groups of several hundred or less are more common. Members form a close-knit group and will often care for a sick or injured dolphin.",
@@ -87,7 +87,7 @@
             "link": "https://www.montereybayaquarium.org/animals/animals-a-to-z/pacific-white-sided-dolphin"
         },
         {
-            "no": "2",
+            "id": "2",
             "name": "Risso's dolphin",
             "imgURL": "dolphin_img_rissos.webp",
             "description": "Like a battered boxer, the bulky, blunt-headed Risso's dolphin bears lots of scars. Its Latin species name griseus refers to the skin's ghostly gray-white mottling — an effect that is enhanced with age. The scars are made by the teeth of its own kind, and by the beaks and tentacles of squid, its preferred prey.",
@@ -101,7 +101,7 @@
             "link": "https://www.montereybayaquarium.org/animals/animals-a-to-z/rissos-dolphin"
         },
         {
-            "no": "3",
+            "id": "3",
             "name": "Long-beaked common dolphin",
             "imgURL": "dolphin_img_long beaked common.webp",
             "description": "This sleek and colorful dolphin has a complex color pattern that includes a white belly, gray flanks and tan or yellowish side patches. This highly intelligent, gregarious animal is very active at the ocean’s surface, and is frequently seen riding the bow waves of boats.",
@@ -115,7 +115,7 @@
             "link": "https://www.montereybayaquarium.org/animals/animals-a-to-z/long-beaked-common-dolphin"
         },
         {
-            "no": "4",
+            "id": "4",
             "name": "Dolphinfish",
             "imgURL": "dolphin_img_dolphinfish.webp",
             "description": "Considered by many to be the most beautiful fish in the sea, the dolphinfish sports iridescent body colors — metallic blues and greens on the back and sides, with white and yellow underneath. Many dolphinfish have blue, green or black spots.",
@@ -129,7 +129,7 @@
             "link": "https://www.montereybayaquarium.org/animals/animals-a-to-z/dolphinfish"
         },
         {
-            "no": "5",
+            "id": "5",
             "name": "Orca dolphin",
             "imgURL": "dolphin_img_orcas.webp",
             "description": "The orca lives in a tight-knit family group, or pod, of two to 30 individuals. With squeals and moans, pod members keep in touch. They’ll protect one another from danger and even come to the aid of an ailing or injured companion. The pod moves from place to place as food sources change with the seasons. Their pods are matrilineal in structure.",
@@ -217,7 +217,7 @@
     ],
     "events": [
         {
-            "eventID": "event-1",
+            "id": "event-1",
             "name": "Ocean Wonders: Sharks!",
             "description": "Go below the surface and meet the amazing animals, including sharks, rays, sea turtles, and more, that live right off the Coney Island Boardwalk.",
             "schedule": "Open year-round",
@@ -230,10 +230,15 @@
             "imgURL_sub2": "events-1_sub2.png",
             "note1": "Over 115 marine species, 18 different kinds of sharks and rays, one unforgettable experience. The award-winning Donald Zucker and Barbara Hrbek Zucker Ocean Wonders: Sharks! exhibit brings some of the most misunderstood animals out of the depths and nose-to-nose with visitors like you!",
             "note2": "How do sharks breathe? How do they reproduce? How do they move? How close do they live to NYC? (Hint: very). Explore the exhibit for answers, fun facts, and close-ups of the faces that swim beneath the surface!",
-            "link": "https://nyaquarium.com/things-to-do/exhibits/ocean-wonders-sharks"
+            "link": "https://nyaquarium.com/things-to-do/exhibits/ocean-wonders-sharks",
+            "ticket_adult_quantity": "0",
+            "ticket_adult_price": "20",
+            "ticket_child_quantity": "0",
+            "ticket_child_price": "10",
+            "ticket_summary": "0"
         },
         {
-            "eventID": "event-2",
+            "id": "event-2",
             "name": "Aquatheater",
             "description": "In our interactive show, the bonds our sea lions have with their trainers take center stage. The animals learn behaviors from them that stimulate their natural instincts and aid in their care.",
             "schedule": "Year-round, weather permitting. Show schedule varies seasonally. Check listing in lobby for daily times.",
@@ -242,7 +247,12 @@
             "imgURL_map": "events-2_map.jpg",
             "imgURL_main1": "events-2_main1.png",
             "imgURL_main2": "events-2_main2.png",
-            "link": "https://nyaquarium.com/things-to-do/exhibits/aquatheater"
+            "link": "https://nyaquarium.com/things-to-do/exhibits/aquatheater",
+            "ticket_adult_quantity": "0",
+            "ticket_adult_price": "15",
+            "ticket_child_quantity": "0",
+            "ticket_child_price": "10",
+            "ticket_summary": "0"
         }
     ]
 }

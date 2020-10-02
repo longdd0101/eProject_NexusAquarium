@@ -151,30 +151,35 @@
       </div>
       -->
     </div>
-    <div class="container">
-      <table class="table table-bordered text-center">
-        <thead class="thead-light">
+    <div id="bookingSection" class="container">
+      <table id="bookingTable" class="table table-bordered text-center">
+        <thead class="">
           <th>Event</th>
-          <th>Adults</th>
-          <th>Children</th>
+          <th>Quantity</th>
+          <th>Price</th>
           <th>Summary</th>
+          <th></th>
         </thead>
         <tbody>
-          <tr>
-            <td class="">
-              <img src="./images/events-1_main1.png" alt="" class="img-fluid" />
-
-              Aquatheater
-            </td>
-
+          <!-- <tr>
+            <td class="ticket_thumbnail">
+              <img src="./images/events-1_main1.png" alt="" class="img-fluid" data-name="imgURL_map"/>
+               <span data-name="name">Aquatheater</span>
+              </td>
             <td>
-              <input type="number" name="adult" id="" min="0" value="2" class="form-control" data-name="" />
+              <input
+                type="number"
+                name="ticket_adult_quantity"
+                min="0"
+                value="1"
+                class="ticket_adult_quantity"
+                data-name="ticket_adult_quantity"
+              />
             </td>
-            <td>
-              <input type="number" name="child" id="" min="0" value="2" class="form-control" data-name="" />
-            </td>
-            <td>500$</td>
-          </tr>
+            <td class="ticket_adult_price" data-name="ticket_adult_price">10$</td>
+            <td class="ticket_summary">50$</td>
+            <td><button class="bookingRemove">Remove</button></td>
+          </tr> -->
         </tbody>
       </table>
     </div>
