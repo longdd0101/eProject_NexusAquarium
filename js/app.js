@@ -1,20 +1,20 @@
 import { dataJSONURL, nameDataJSONToLocalStorage } from "./variables.js";
 
-//Load data from Json file to dataFromJSONToLocalStorage_Array
+//Load data from Json file to dataFromJSONToLocalStorage_Array =============================
 export function fn_getDataJSON(dataJSONURL) {
-  let dataJSON_Array;
+  let _dataJSON_Object;
   const xhr = new XMLHttpRequest();
   xhr.open("GET", dataJSONURL, true);
   xhr.send();
   xhr.onreadystatechange = function () {
     if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-      dataJSON_Array = JSON.parse(xhr.responseText);
-      localStorage.setItem(nameDataJSONToLocalStorage, JSON.stringify(dataJSON_Array));
+      _dataJSON_Object = JSON.parse(xhr.responseText);
+      localStorage.setItem(nameDataJSONToLocalStorage, JSON.stringify(_dataJSON_Object));
     }
   };
 
-  dataJSON_Array = JSON.parse(localStorage.getItem(nameDataJSONToLocalStorage));
-  return dataJSON_Array;
+  _dataJSON_Object = JSON.parse(localStorage.getItem(nameDataJSONToLocalStorage));
+  return _dataJSON_Object;
 }
 
 // Function get LocalStorage ===================================================================
@@ -26,4 +26,11 @@ export function fn_getDataFromLocalStorage(nameData_String) {
     _data = JSON.parse(localStorage.getItem("nameData_String"));
   }
   return _data;
+}
+
+//GET parameter form URL ===================================================================
+export function fn_URLSearchParams(parameterName) {
+  let _parameters = new URLSearchParams(window.location.search);
+
+  return _parameters.get(parameterName);
 }
