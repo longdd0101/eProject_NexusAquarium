@@ -1,17 +1,20 @@
+import { dataJSONURL, nameDataBookingToLocalStorage } from "./variables.js";
+import { fn_URLSearchParams, fn_getDataJSON, fn_getObjectFromDataJSON } from "./app.js";
+
+var detailType = fn_URLSearchParams("detailType");
+
+const tableCompare = document.querySelector("#tableCompare tbody");
+const animalList = document.querySelector("#animalList");
+fn_createDOMAnimalList(detailType);
+
 // Đọc file JSON bằng AJAX
 const xhr = new XMLHttpRequest();
 const url = "./js/data.json";
-const tableCompare = document.querySelector("#tableCompare tbody");
-const animalList = document.querySelector("#animalList");
-
 xhr.onreadystatechange = loadEventListeners;
 xhr.open("GET", url);
 xhr.send();
 // ====================================================================================================
 function loadEventListeners() {
-  // Create DOM animal List
-  fn_createDOMAnimalList();
-
   // Create table Compare from Local Storage
   fn_compareLocalStorage();
 
@@ -23,26 +26,24 @@ function loadEventListeners() {
 }
 
 // Create DOM Animal List =================================================================================
-function fn_createDOMAnimalList() {
-  if (xhr.readyState === XMLHttpRequest.DONE) {
-    var animalsJSON = JSON.parse(xhr.responseText);
-    var animalType = animalList.getAttribute("animalType");
-    for (let animalsJSON_Type in animalsJSON) {
-      if (animalType === animalsJSON_Type) {
-        for (let animal of animalsJSON[animalType]) {
-          animalList.innerHTML += `
-            <div class="animalList-item col-12 col-sm-6 col-md-4 col-lg-3 " animalID="${animal.id}"> 
+function fn_createDOMAnimalList(detailType) {
+  const dataJSON_Object = fn_getDataJSON(dataJSONURL);
+  for (let dataJSON_Array in dataJSON_Object) {
+    if (dataJSON_Array === detailType) {
+      for (let animal of dataJSON_Object[dataJSON_Array]) {
+        animalList.innerHTML += `
+            <div class="animalList-item col-12 col-sm-6 col-md-4 mb-3 " animalID="${animal.id}"> 
               <button class="addCompare">Compare</button> 
               <img class="img-fluid" src="./images/${animal.imgURL}" alt="" /> 
               <h4>${animal.name}</h4> 
               <p>${animal.description}</p>  
             </div>`;
-        }
       }
     }
   }
 }
 
+// Xem lại sau
 // Function create table compare form Local Storage ===================================================================
 function fn_compareLocalStorage() {
   if (xhr.readyState === XMLHttpRequest.DONE) {

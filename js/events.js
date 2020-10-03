@@ -1,6 +1,5 @@
-import { dataJSONURL, nameDataBookingToLocalStorage } from "./variables.js";
+import { nameDataBookingToLocalStorage } from "./variables.js";
 import {
-  fn_getDataJSON,
   fn_URLSearchParams,
   fn_getObjectFromDataJSON,
   fn_setObjectToArrayLocalStorage,

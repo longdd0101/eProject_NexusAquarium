@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dolphins</title>
+    <title>Nexus Aquarium</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -59,13 +59,14 @@
                         Animals
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="./animals_sharks.html">Sharks</a>
-                        <a class="dropdown-item" href="./animals_dolphins.html">Dolphins</a>
-                        <a class="dropdown-item" href="./animals_jellies.html">Jellies</a>
+                        <a class="dropdown-item" href="./animals.html?detailType=sharks">Sharks Sharks</a>
+                        <a class="dropdown-item" href="./animals.html?detailType=dolphins">Dolphins</a>
+                        <a class="dropdown-item" href="./animals.html?detailType=jellies">Jellies</a>
                       </div>
                     </li>
+
                     <li class="nav-item">
-                      <a class="nav-link" href="./events.html">Events</a>
+                      <a class="nav-link" href="./index.html#section-events">Events</a>
                     </li>
                     <li class="nav-item">
                       <a class="nav-link" href="./contact.html">Contact</a>
@@ -79,46 +80,75 @@
       </div>
     </div>
     <!-- END HEADER ============================================================ -->
-    <div id="content-wrapper" class="container text-justify">
-      <div>
-        <h3>Types of sharks</h3>
-        <p>
-          They’re finned and they’re fascinating. Explore our shark animal guides to dig into delightful details about
-          different species of fascinating sharks!
-        </p>
+
+    <!--  ============================================================ -->
+
+    <div id="content-wrapper" class="container">
+      <div id="section-animals" class="animals">
+        <h3>Nexus Aquarium Animals</h3>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <div class="bg-light border">
+              <a href="./animals.html?detailType=sharks">
+                <img class="img-fluid" src="./images/sharks_img_blacktip reef.webp" alt="" />
+                <h4 class="text-center">Sharks</h4>
+              </a>
+              <p class="text-justify p-2"></p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="bg-light border text-center">
+              <a href="./animals.html?detailType=jellies">
+                <img class="img-fluid" src="./images/jellies_img_moon-jelly.webp" alt="" />
+                <h4 class="">Jellies</h4>
+              </a>
+              <p class="text-justify p-2"></p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="bg-light border text-center">
+              <a href="./animals.html?detailType=dolphins">
+                <img class="img-fluid" src="./images/dolphin_img_dolphinfish.webp" alt="" />
+                <h4 class="">Dolphins</h4>
+              </a>
+              <p class="text-justify p-2"></p>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="animalList" animalType="dolphins" class="row">
-        <!-- <div class="animalList-item col-12 col-sm-6 col-md-4 col-lg-3 box-border" animalID="sharks-1">
-          <button class="addCompare">Compare</button>
-          <img class="img-fluid animalList-item-imgURL" src="./images/sharks_img_blacktip reef.webp" alt="" />
-          <h4 class="animalList-item-name">Blacktip reef shark</h4>
-          <p class="animalList-item-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, vel!</p>
-        </div> -->
-      </div>
-      <div id="" class=" ">
-        <table id="tableCompare" class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Images</th>
-              <th>Name</th>
-              <th>Size</th>
-              <th>Habitat</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr>
-              <td><img class="img-thumbnail" src="./images/sharks_img_blacktip reef.webp" alt="" /></td>
-              <td>Blacktip reef shark</td>
-              <td>Up to 6 feet (1.8 m)</td>
-              <td>Coral reefs</td>
-              <td><button>Xóa</button></td>
-            </tr> -->
-          </tbody>
-        </table>
-        <br />
+      <div id="section-events" class="events">
+        <h3 class="text-center">Nexus Aquarium Events</h3>
+
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="bg-light border text-center">
+              <a href="./events.html?detailType=events&detailID=event-1">
+                <img class="img-fluid" src="./images/events-1_main1.png" alt="" />
+                <h4>Ocean Wonders: Sharks!</h4>
+              </a>
+              <p class="text-justify p-2">
+                Go below the surface and meet the amazing animals, including sharks, rays, sea turtles, and more, that live
+                right off the Coney Island Boardwalk.
+              </p>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="bg-light border text-center">
+              <a href="./events.html?detailType=events&detailID=event-2">
+                <img class="img-fluid" src="./images/events-2_main1.png" alt="" />
+                <h4>Aquatheater</h4>
+              </a>
+              <p class="text-justify p-2">
+                In our interactive show, the bonds our sea lions have with their trainers take center stage. The animals
+                learn behaviors from them that stimulate their natural instincts and aid in their care.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- FOOTER ============================================================ -->
+    <div id="footer" class="bg-dark text-white text-center">© 2020 AquariumNexus.vn</div>
     <!-- Optional JavaScript ============================================================ -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
@@ -136,7 +166,8 @@
       integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/animals.js"></script>
+
+    <script src="./js/main.js"></script>
     <!-- ======================================================== -->
   </body>
 </html>
