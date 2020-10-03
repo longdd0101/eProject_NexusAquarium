@@ -115,12 +115,17 @@ const bookingTable = document.querySelector("#bookingTable tbody");
 
 bookingButton.addEventListener("click", fn_bookingButton);
 bookingTable.addEventListener("click", fn_deleteRow);
+bookingTable.addEventListener("change", fn_changeQuantity);
+
 fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+fn_updateElementSummaryTotal();
 
 function fn_bookingButton() {
   fn_setObjectToArrayLocalStorage(event_Object, nameDataBookingToLocalStorage);
   fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+  fn_updateElementSummaryTotal();
 }
+
 function fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage) {
   const arrayDataBooking = fn_getArrayLocalStorage(nameDataBookingToLocalStorage);
   //Delete row old
@@ -138,28 +143,56 @@ function fn_addTrTagBooking(_Object, _DOM) {
   const trTag = document.createElement("tr");
 
   // Add class to <tr> Tag
+  // trTag.setAttribute("detailID", _Object.id);
+  trTag.setAttribute("class", "tesst");
   trTag.setAttribute("detailID", _Object.id);
 
   // add HTML
   trTag.innerHTML = `  
       <td class="ticket_thumbnail">
-        <img src="./images/${_Object.imgURL_main1}" alt="" class="img-fluid" data-name="imgURL_main1"/>
-          <span data-name="name">${_Object.name}</span>
+        <img src="./images/${_Object.imgURL_main1}" alt="" class="img-fluid" dataName="imgURL_main1"/>
+          <span dataName="name">${_Object.name}</span>
         </td>
       <td>
         <input
           type="number"
-          name="ticket_adult_quantity"
+          name="ticket_quantity"
           min="0"
+
           value="${_Object.ticket_adult_quantity}"
+
           class="ticket_quantity"
-          data-name="ticket_adult_quantity"
-          onchange="fn_changeQuantity(this)"
+          ticketType="ticket_adult"
+          dataName="ticket_adult_quantity"
         />
       </td>
-      <td class="ticket_adult_price" data-name="ticket_adult_price">${_Object.ticket_adult_price}$</td>
-      <td class="ticket_summary">${_Object.ticket_summary}$</td>
-      <td><button class="bookingRemove" >Remove</button></td>        
+      <td class="ticket_price" ticketType="ticket_adult" dataName="ticket_adult_price">
+        ${_Object.ticket_adult_price}$
+      </td>
+
+      <td>
+        <input
+          type="number"
+          name="ticket_quantity"
+          min="0"
+
+          value="${_Object.ticket_child_quantity}"
+
+          class="ticket_quantity"
+          ticketType="ticket_child"
+          dataName="ticket_child_quantity"
+        />
+      </td>
+      <td class="ticket_price" ticketType="ticket_child" dataName="ticket_child_price">
+        ${_Object.ticket_child_price}$
+      </td>
+      
+      <td class="ticket_summary" dataName="ticket_summary" >
+        ${_Object.ticket_summary}$
+      </td>
+      <td>
+        <button class="bookingRemove" >Remove</button>
+      </td>        
     `;
   // add to tbody
   _DOM.appendChild(trTag);
@@ -171,24 +204,61 @@ function fn_deleteRow(event) {
     const _DOM = event.target.parentElement.parentElement;
     // console.log(_DOM);
     const detailID = _DOM.getAttribute("detailID");
+    // console.log(detailID);
 
     // remove in localstorage
     fn_removeObjectIDInArrayLocalStorage(detailID, nameDataBookingToLocalStorage);
 
     // re create <tr>
     fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+    fn_updateElementSummaryTotal();
   }
 }
 // Function change quantity  ===================================================================
-function fn_changeQuantity(_thisInput) {
-  // Get ID
-  const _DOM = _thisInput.target.parentElement.parentElement;
-  // console.log(_DOM);
-  const detailID = _DOM.getAttribute("detailID");
+// fn_changeQuantity();
+function fn_changeQuantity(change) {
+  if (change.target.classList.contains("ticket_quantity")) {
+    // element Input
+    const elementInput = change.target;
+    const dataQuantity_Name = elementInput.getAttribute("dataName");
+    const dataQuantity_Value = elementInput.value;
 
-  // remove in localstorage
-  // fn_removeObjectIDInArrayLocalStorage(detailID, nameDataBookingToLocalStorage);
+    // element tr
+    const elementTr = elementInput.parentElement.parentElement;
+    const detailID = elementTr.getAttribute("detailID");
+    // console.log(elementTr);
+    console.log(detailID);
 
-  // re create <tr>
-  // fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+    // change arrayDataBooking in local storage
+    fn_updateQuantityArrayDataBooking(detailID, dataQuantity_Name, dataQuantity_Value);
+
+    fn_bookingFromLocalStorage(bookingTable, nameDataBookingToLocalStorage);
+    fn_updateElementSummaryTotal();
+  }
+}
+
+function fn_updateQuantityArrayDataBooking(detailID, dataQuantity_Name, dataQuantity_Value) {
+  const arrayDataBooking = fn_getArrayLocalStorage(nameDataBookingToLocalStorage);
+
+  for (const _object of arrayDataBooking) {
+    if (_object.id === detailID) {
+      _object[dataQuantity_Name] = dataQuantity_Value;
+      _object["ticket_summary"] =
+        parseInt(_object["ticket_adult_quantity"]) * parseInt(_object["ticket_adult_price"]) +
+        parseInt(_object["ticket_child_quantity"]) * parseInt(_object["ticket_child_price"]);
+    }
+  }
+  localStorage.setItem(nameDataBookingToLocalStorage, JSON.stringify(arrayDataBooking));
+}
+
+function fn_updateElementSummaryTotal() {
+  const arrayDataBooking = fn_getArrayLocalStorage(nameDataBookingToLocalStorage);
+  let summaryTotal = 0;
+  for (const _object of arrayDataBooking) {
+    summaryTotal += parseInt(_object["ticket_summary"]);
+  }
+  const elementSummaryTotal = document.querySelector("#bookingTable #summaryTotal");
+  elementSummaryTotal.innerText = summaryTotal + "$";
+  // const _arrayDataBooking = fn_getArrayLocalStorage(nameDataBookingToLocalStorage);
+  // console.log(_arrayDataBooking);
 }

@@ -155,25 +155,28 @@
       <table id="bookingTable" class="table table-bordered text-center">
         <thead class="">
           <th>Event</th>
-          <th>Quantity</th>
-          <th>Price</th>
+          <th>Quantity Adult</th>
+          <th>Price Adult</th>
+          <th>Quantity child</th>
+          <th>Price child</th>
           <th>Summary</th>
           <th></th>
         </thead>
         <tbody>
           <!-- <tr>
             <td class="ticket_thumbnail">
-              <img src="./images/events-1_main1.png" alt="" class="img-fluid" data-name="imgURL_map"/>
-               <span data-name="name">Aquatheater</span>
-              </td>
+              <img src="./images/events-1_main1.png" alt="" class="img-fluid" data-name="imgURL_map" />
+              <span data-name="name">Aquatheater</span>
+            </td>
             <td>
               <input
                 type="number"
                 name="ticket_adult_quantity"
                 min="0"
                 value="1"
-                class="ticket_adult_quantity"
+                class="ticket_quantity"
                 data-name="ticket_adult_quantity"
+                onchange="fn_changeQuantity(this)"
               />
             </td>
             <td class="ticket_adult_price" data-name="ticket_adult_price">10$</td>
@@ -181,6 +184,13 @@
             <td><button class="bookingRemove">Remove</button></td>
           </tr> -->
         </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">Summary</td>
+            <td id="summaryTotal"></td>
+            <td><button onclick="alert('Thank you!')">Booking</button></td>
+          </tr>
+        </tfoot>
       </table>
     </div>
     <!-- END CONTENT ============================================================ -->
