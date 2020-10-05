@@ -12,8 +12,10 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
     <link rel="stylesheet" href="./css/main.css" />
+
   </head>
   <body>
     <!-- HEADER ============================================================ -->
@@ -44,6 +46,9 @@
                   <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
                       <a class="nav-link" href="./index.html">Home </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./aboutus.html">About us </a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -89,7 +94,7 @@
 
     <div id="content-wrapper" class="container">
       <div id="section-animals" class="animals">
-        <h3>Nexus Aquarium Animals</h3>
+        <h3 class="pt-3 pb-3">Nexus Aquarium Animals</h3>
         <div class="row">
           <div class="col-12 col-md-4">
             <div class="bg-light border">
@@ -121,7 +126,7 @@
         </div>
       </div>
       <div id="section-events" class="events">
-        <h3 class="text-center">Nexus Aquarium Events</h3>
+        <h3 class="pt-3 pb-3">Nexus Aquarium Events</h3>
 
         <div class="row">
           <div class="col-12 col-md-6">
@@ -153,13 +158,38 @@
       </div>
     </div>
     <!-- FOOTER ============================================================ -->
-    <div id="footer" class="bg-dark text-white">
+    <div id="footer" class="mt-5 bg-dark text-white">
       <div class="container">
         <div class="row pt-4">
-          <div class="col-12 col-md-5 p-3">
-            <p>Main entrance 886</p>
-            <p>Cannery Row Monterey,</p>
-            <p>CA 93940 831.648.4800</p>
+          <div class="col-12 col-md-5 pl-5">           
+            
+            <ul class="isocialList">
+              <li class="isocialList__item">                  
+                <a href="https://vi-vn.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
+              </li>
+              <li class="isocialList__item">
+                <a  href="https://twitter.com/explore" target="_blank"><i class="fab fa-twitter-square"></i></a>                  
+              </li>
+              <li class="isocialList__item">
+                <a  href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>                 
+              </li>
+              <li class="isocialList__item">
+                <a href="https://accounts.google.com/" target="_blank"><i class="fab fa-google-plus"></i></a>
+              </li>
+            </ul>         
+          
+            <ul class="contactList">
+              <li class="contactList__item">
+                <a href="https://goo.gl/maps/GApyYmSGaM2cFQPv5" target="_blank"><i class="fas fa-map-marker-alt"></i></i> 164 Phan Chu Trinh, aptechBMT</a>
+              </li>
+              <li class="contactList__item">                  
+                <a href="tel:0123456789"><i class="fas fa-mobile-alt"></i> 000-000-0000 </a>
+              </li>
+              <li class="contactList__item">
+                <a href="mailto: contact@nexusaquarium.com"><i class="far fa-envelope"></i> contact@nexusaquarium.com</a>
+              </li>
+            </ul>
+            
           </div>
           <div class="col-12 col-md-7">
             <iframe
@@ -176,8 +206,9 @@
           </div>
         </div>
       </div>
-      <div class="text-center">© 2020 AquariumNexus.vn</div>
+      <div  class="text-center p-2">© 2020 AquariumNexus.vn - AptechBMT</div>
     </div>
+    <!-- END FOOTER ============================================================ -->
     <!-- Optional JavaScript ============================================================ -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script

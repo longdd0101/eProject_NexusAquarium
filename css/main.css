@@ -1,23 +1,31 @@
 /* POST ========================================== */
-.post__thumbnail {
-  width: 100%;
+
+/* HEADER ======================================================== */
+/* CONTENT ======================================================= */
+.height-75vh {
+  min-height: 75vh;
+}
+/* FOOTER ======================================================== */
+
+#footer a {
+  color: white;
+}
+#footer a:hover {
+  color: #007bff;
+  text-decoration: none;
+}
+#footer .isocialList {
+  list-style-type: none;
+  font-size: 2rem;
+
+  display: flex;
+}
+#footer .isocialList__item:not(:last-child) {
+  margin-right: 1rem;
+  /* background-color: red; */
 }
 
-.height-300 {
-  min-height: 300px;
-}
-.height-100 {
-  min-height: 100px;
-}
-.width-100 {
-  width: 100%;
-}
-.navbar-text {
-  font-size: 1.25rem;
-}
-.animalList-item {
-  /* max-height: 300px; */
-  /* overflow: hidden; */
-  /* padding-bottom: 20px; */
-  /* margin-bottom: 20px; */
+#footer .contactList {
+  list-style-type: none;
+  line-height: 1.8;
 }
