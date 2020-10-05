@@ -3,8 +3,9 @@ import { fn_URLSearchParams, fn_getDataJSON } from "./app.js";
 
 var detailType = fn_URLSearchParams("detailType");
 var detailID = fn_URLSearchParams("detailID");
-console.log(detailID);
+// console.log(detailID);
 const animalListDOM = document.querySelector("#animalList");
+const animalDescription = document.querySelector("#animalDescription");
 const animalDetailDOM = document.querySelector("#animalDetail");
 
 fn_createDOMAnimalList(detailType);
@@ -15,7 +16,10 @@ if (detailID != null) {
 // Create DOM Animal List =================================================================================
 function fn_createDOMAnimalList(detailType) {
   const dataJSON_Object = fn_getDataJSON(dataJSONURL);
-
+  animalDescription.innerHTML = `
+    <h3  class="text-capitalize mt-3">List of ${detailType}</h3>
+    
+  `;
   for (let _animal of dataJSON_Object[detailType]) {
     animalListDOM.innerHTML += `
             <div class="animalList-item col-12 col-sm-6 col-md-4 mt-3 mb-3 " animalID="${_animal.id}"> 
