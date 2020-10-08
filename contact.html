@@ -96,7 +96,7 @@
 
           <h3>Contact</h3>
           <p>Please use the contact form below to send us an email. We usually respond within 24 hours to all emails.</p>
-          <form>
+          <form onsubmit="alert('Your message has been sent!')">
             <div class="form-group">
               <label for="yourName">Your Name (required)</label>
               <input type="text" class="form-control" id="yourName" placeholder="Your name" required>
@@ -110,7 +110,7 @@
               <label for="yourMessage">Your Message</label>
               <textarea  class="form-control"  name="yourMessage" id="yourMessage" cols="100%" rows="5" placeholder="Your Message"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Send</button>
+            <button type="submit" class="btn btn-primary"  >Send</button>
           </form>
         </div>
       </div>
